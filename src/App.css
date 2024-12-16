@@ -1,0 +1,409 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Public Sans", sans-serif;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  color: #ad7000;
+  width: 70px;
+  height: 70px;
+  margin: 1rem auto;
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  text-align: center;
+  font-family: "Pacifico", cursive;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3125rem;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  background: #ffe7a8;
+}
+
+header h1 {
+  text-align: left;
+  margin-top: 4rem;
+  padding-left: 1rem;
+  font-weight: 400;
+  font-size: 1.75rem;
+  letter-spacing: 0.6px;
+}
+
+header h1 span {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-family: "Redacted Script", cursive;
+  font-weight: 400;
+  font-size: 6.25rem;
+  line-height: 33px;
+}
+
+header h2 {
+  font-size: 3.4375rem;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.message {
+  position: fixed;
+  top: 20vh;
+  left: 15%;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  text-align: center;
+  font-size: 1.25rem;
+  background-color: #fff2cf;
+  color: #ad7000;
+  border: 2px solid #ad7000;
+  padding: 3rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 30;
+  animation: slide-down 300ms ease-out forwards;
+}
+
+.message:hover .close-message {
+  opacity: 1;
+}
+
+.message .close-message {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  opacity: 0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.message .close-message:hover {
+  transform: scale(1.2);
+}
+
+.favorite-quotes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  background: #ffe7a8;
+}
+
+.favorite-quotes .quotes h3 {
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+}
+
+.favorite-quotes .quote-card {
+  margin: 4.375rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 2px solid #ad7000;
+  border-radius: 26px;
+  background-color: transparent;
+  font-size: 2rem;
+  color: #ad7000;
+}
+
+/* .favorite-quotes .quote-card::before {
+  content: "#" attr(data-list-position);
+  padding: 0 1rem;
+  position: absolute;
+  top: -12px;
+  left: calc(50% - 51.5px);
+  width: 85px;
+  height: 20px;
+  text-align: center;
+  font-family: "Mukta Mahee", sans-serif;
+  font-size: 3.75rem;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: #ffe7a8;
+} */
+
+.favorite-quotes .quote-card h3 {
+  width: 90%;
+  text-align: center;
+  font-size: 1.625rem;
+  line-height: 38px;
+}
+
+.favorite-quotes .quote-card p {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.favorite-quotes .favorite-quotes-description {
+  width: 80%;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #ad7000;
+}
+
+.favorite-quotes .favorite-quotes-description p {
+  margin: 0.4rem;
+  font-size: 1.125rem;
+}
+
+.category-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.category-header h2 {
+  width: 100%;
+  margin: 90px 0;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.quotes .category-header p {
+  width: auto;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.category-header #category {
+  width: 245px;
+  height: 45px;
+  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.17);
+  border-radius: 26px;
+  outline: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: 1.25rem;
+}
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.3125rem;
+}
+
+.category-filter label {
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.category-filter svg {
+  width: 15px;
+  height: 15px;
+  fill: black;
+  color: black;
+}
+
+.category-filter fieldset {
+  padding: 1rem;
+  text-align: center;
+}
+
+.category-filter select {
+  margin-left: 2rem;
+  padding: 7px 10px;
+  font-size: inherit;
+  font-family: inherit;
+  background-color: #ffffff;
+}
+
+.quotes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  gap: 2.5rem;
+}
+
+.quotes h3 {
+  font-size: 1.75rem;
+  line-height: 39px;
+}
+
+.quotes p {
+  width: 100%;
+  font-size: 1.3125rem;
+}
+
+.quote-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 26px;
+  background-color: #88bbc1;
+  font-size: 1.75rem;
+}
+
+.quote-card .close-quote {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.quote-card .close-quote {
+  color: #ad7000;
+  transition: 0.1s;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.quote-card .close-quote:hover {
+  transform: scale(1.2);
+}
+
+.quote-card div > h3 {
+  margin: 3rem 0;
+  font-weight: 400;
+}
+
+.quote-card .categories {
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.quote-card .category {
+  margin-right: 12px;
+  color: #000;
+  text-transform: uppercase;
+}
+
+.quote-card footer {
+  padding: 0;
+}
+
+.quote-card .author {
+  margin: 0;
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.quote-card .add-favorite {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  text-align: right;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quote-card .add-favorite svg {
+  display: inline-block;
+  width: 2ch;
+  max-width: 60px;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.quote-card .add-favorite:hover svg {
+  color: #000;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 800px) {
+  .all-quotes .quotes {
+    justify-content: space-between;
+  }
+  .all-quotes .quote-card {
+    width: calc(50% - 2.5rem);
+  }
+  .quotes .category-header {
+    justify-content: space-between;
+  }
+  .favorite-quotes .quote-card h3 {
+    width: 70%;
+    line-height: 44px;
+    font-size: 2rem;
+  }
+  .favorite-quotes .quote-card p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+}
+
+@media (min-width: 1400px) {
+  .all-quotes .quotes {
+    justify-content: flex-start;
+  }
+  .all-quotes .quote-card {
+    width: calc(33% - 1.42rem);
+  }
+  .category-header {
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .quotes .category-header p {
+    text-align: left;
+  }
+}
