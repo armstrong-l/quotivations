@@ -18,10 +18,10 @@ function App() {
   const [messageText, setMessageText] = useState(""); 
   const [showMessage, setShowMessage] = useState(false);
 
+  // url containing categories (All, Leadership, Empathy, Motivation, Learning, Success, Empowerment)
   const quotesUrl =
     "https://gist.githubusercontent.com/skillcrush-curriculum/6365d193df80174943f6664c7c6dbadf/raw/1f1e06df2f4fc3c2ef4c30a3a4010149f270c0e0/quotes.js";
-  // const categories = ["All", "Leadership", "Empathy", "Motivation", "Learning", "Success", "Empowerment"];
-
+  
   const maxFaves = 3;
 
 // Fetching the quote data
@@ -31,7 +31,6 @@ function App() {
     const request = await fetch(quotesUrl);
     const response = await request.json(); 
     setQuotes(response);
-    // console.log(quotes);
   }
 
 catch (e){
@@ -62,8 +61,6 @@ catch (e){
   };
 };
 
-
-
 useEffect(() => {
   fetchQuotes();
   fetchCategories();
@@ -71,13 +68,9 @@ useEffect(() => {
 
 
 useEffect(() => {
-
     const favoriteQuotesString = JSON.stringify(favoriteQuotes);
     window.localStorage.setItem("favoriteQuotesString", favoriteQuotesString)
-  
 }, [favoriteQuotes]);
-
-
 
 
 const handleCategoryChange = (e) => {
@@ -89,8 +82,7 @@ const filteredQuotes = category !== "All" ?
   quotes;
 
   const addToFavorites = (quoteId) => {
-    // console.log(`In favorites quote with id ${quoteId}`);
-   
+       
     const selectedQuote = quotes.find((quote)=> quote.id === quoteId )
     const alreadyFavorite = favoriteQuotes.find((favorite) => favorite.id === selectedQuote.id)
         
@@ -108,7 +100,6 @@ const filteredQuotes = category !== "All" ?
     } else {setMessageText("Max number of Favorite Quotes reached.  Please deleted one to add another.")
       setShowMessage(true);
     }
-    // console.log(selectedQuote);
   };
 
   const removeMessage = () => {
